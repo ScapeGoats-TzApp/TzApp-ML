@@ -28,8 +28,9 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Data files (optional - uncomment if you want to exclude large data files)
-# *.csv
+# Data files (exclude large data files)
+*.csv
+weather.csv
 # *.nc
 # *.h5
 # *.hdf5
@@ -47,3 +48,5 @@ Thumbs.db
 
 # Git
 .git/
+
+*.csv
