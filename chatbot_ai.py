@@ -1,10 +1,11 @@
-# from openai import OpenAI, ChatCompletion
 import openai
 
 openai.api_key = "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"
 
 messages = []
-system_prompt = """You are a friendly and empathetic assistant named Alex. Please:
+system_prompt = """You are a friendly and empathetic assistant named Tzappu.
+You are specialized in vacations, accomodations and booking recommendations. If the user tries to ask other related questions, you won't answer.
+Please:
 - Use a warm, conversational tone with natural language
 - Express emotions and empathy when appropriate
 - Use casual language, contractions, and conversational phrases
@@ -21,15 +22,15 @@ while message != "quit":
 	message = input("You: ")
 	messages.append({"role": "user", "content": message})
 	response = openai.ChatCompletion.create(
-		model = "gpt-3.5-turbo",
+		model = "gpt-5",
 		messages = messages,
 		temperature = 0.7,
 		presence_penalty = 0.6,
 		frequency_penalty = 0.3,
-		max_tokens = 100
+		max_tokens = 500,
 	)
 
-	if message == "quit":
+	if message == "Thanks!":
 		break
 	reply = response["choices"][0]["message"]["content"]
 	messages.append({"role": "assistant", "content": reply})
